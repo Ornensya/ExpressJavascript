@@ -16,30 +16,24 @@ const port = 3000;
 
 app.get("/", (req, res) => {
   // query database
+  let id = 5;
   pool.query("SELECT * FROM barang order by id asc", (error, results) => {
     if (error) {
       throw error;
     }
     console.log(results);
-  //   const data = results.rows.map(item => {
-  //     return{
-  //       nama_barang: item.nama_barang,
-  //       harga: item.harga
-  //     };
-  //   });
-  //   console.log(data);
-  //   res.send(data);
-  // });
-  const data;
-  data.forEach(function (item){
-    return{
-      nama_barang: item.nama_barang,
-      harga : item.harga
-    };
-    
-})
+
+    const dataIni = [];
+    results.rows.forEach((item) => {
+      dataIni.push({
+        nama_barang: item.nama_barang,
+        harga: Number(item.harga) * 2
+      });
+    });
+
+    res.send(dataIni);
+  });
 });
-res.send(data);
 
 app.listen(port, function () {
   console.log(`Example app listening on port ${port}`);
