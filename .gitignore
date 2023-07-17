@@ -1,2 +1,3 @@
 /node_modules
-*.txt
+*.txt // agar file yang diupdate tidak dimasukkan ke repository 
+(.txt merupakan ekstensi dari file yang akan di sembunyikan)
