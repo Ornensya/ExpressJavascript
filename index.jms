@@ -21,12 +21,18 @@
 
 // })
 
-const express = require('express');
-
-const pool = require("./connection.js");
+// const express = require('express');
+import express from 'express';
+// const {json} = require('express') // untuk menambahkanobjek yang diinginkan dengan tekan ctrl+space
+// const pool = require("./connection.js");
+import pool from './connection.js';
 
 const app = express();
 const port = 3001;
+
+import { hi } from "./function.mjs"
+
+console.log(Hii());
 
 app.get("/", (req, res) => {
   // query database
